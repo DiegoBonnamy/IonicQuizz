@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      Open Trivia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Score -->
+  <div class="score">
+    <h1>Partie terminée</h1>
+    <hr/>
+    <h3>Bien joué {{ pseudo }}</h3>
+    <h1><b>{{ score }}</b> / {{ nbQuestions * timer }} pts</h1>
+    <h3>({{ successAnswers }} / {{ nbQuestions }})</h3>
+    <img [src]="imageFin" class="mt"><br/>
+    <ion-grid class="reponses-bloc">
+      <ion-row>
+        <ion-col>
+          <button class="btn btn-secondary" (click)="replay()">Rejouer</button>
+        </ion-col>
+        <ion-col>
+          <button class="btn btn-primary" (click)="home()">Accueil</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

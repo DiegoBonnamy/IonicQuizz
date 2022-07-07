@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      Open Trivia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Formulaire de connexion -->
+  <div class="form">
+
+    <h1>Nouvelle partie</h1>
+
+    <!-- Pseudo -->
+    <ion-item class="mt">
+      <ion-label position="floating">Votre pseudo</ion-label>
+      <ion-input [(ngModel)]="pseudo"></ion-input>
+    </ion-item>
+
+    <!-- Nb Question -->
+    <ion-item>
+      <ion-label position="floating">Nombre de questions</ion-label>
+      <ion-input type="number" [(ngModel)]="nbQuestions"></ion-input>
+    </ion-item>
+
+    <!-- Difficulté -->
+    <ion-item>
+      <ion-label>Difficulté</ion-label>
+      <ion-select [(ngModel)]="difficulte">
+        <ion-select-option value="easy">Facile</ion-select-option>
+        <ion-select-option value="medium">Moyen</ion-select-option>
+        <ion-select-option value="hard">Difficile</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Catégories -->
+    <ion-item>
+      <ion-label>Catégories</ion-label>
+      <ion-select [(ngModel)]="categoriesSelected" [multiple]="true">
+        <ion-select-option value="all">Toutes</ion-select-option>
+        <ion-select-option *ngFor="let cat of categories" value="{{ cat }}">{{ cat }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="small-text">{{ nbOfCat }} questions disponibles dans ces catégories</p>
+
+    <!-- Remember -->
+    <ion-item class="ml-reverse" lines="none">
+      <ion-toggle [(ngModel)]="remember"></ion-toggle>
+      <ion-label>Sauvegarder mes informations</ion-label>
+    </ion-item>
+
+    <!-- Submit -->
+    <div class="submit">
+      <button class="btn btn-primary" (click)="begin()">Commencer</button>
+    </div>
+  </div>
+
+</ion-content>

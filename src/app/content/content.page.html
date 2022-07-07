@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      Open Trivia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Content -->
+  <div class="content">
+    <ion-grid class="reponses-bloc">
+      <ion-row>
+        <ion-col>
+          <p color="tertiary" class="ion-text-center">Score : {{ score }} pts</p>
+        </ion-col>
+        <ion-col>
+          <p color="tertiary" class="ion-text-center">Question n°{{ currentQuestion }} / {{ nbQuestions }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- ProgressBar -->
+    <ion-progress-bar value="{{ progressValue }}" color="{{ progressColor }}"></ion-progress-bar>
+
+    <!-- Question -->
+    <h5 [innerHTML]="question.question"></h5>
+
+    <!-- Réponses -->
+    <ion-grid class="reponses-bloc">
+      <ion-row>
+        <ion-col>
+          <button (click)="answer(1)" [innerHTML]="answers[0]" class="btn {{answerBtnClass1}}"></button>
+        </ion-col>
+        <ion-col>
+          <button (click)="answer(2)" [innerHTML]="answers[1]" class="btn {{answerBtnClass2}}"></button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="question.type == 'multiple'">
+        <ion-col>
+          <button (click)="answer(3)" [innerHTML]="answers[2]" class="btn {{answerBtnClass3}}"></button>
+        </ion-col>
+        <ion-col>
+          <button (click)="answer(4)" [innerHTML]="answers[3]" class="btn {{answerBtnClass4}}"></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Submit -->
+    <div class="submit" *ngIf="isNextVisible">
+      <button class="btn btn-primary" (click)="checkQuestion()">Valider</button>
+    </div>
+
+    <!-- Image -->
+    <div class="submit">
+      <img [src]="imageQuestion" class="mt">
+    </div>
+  </div>
+</ion-content>
