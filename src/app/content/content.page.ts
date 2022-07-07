@@ -114,7 +114,7 @@ export class ContentPage implements OnInit {
     this.category.forEach(cat => {
       catStr += cat + ","
     });
-    this.router.navigate(['/score', this.pseudo, this.score, this.nbQuestions, this.timer, this.successAnswers, this.difficulte, catStr.slice(0, -1)]);
+    this.router.navigate(['/score', this.pseudo, this.score, this.nbQuestions, this.timer, this.successAnswers, this.difficulte, catStr.slice(0, -1)], { replaceUrl: true });
   }
 
   /**

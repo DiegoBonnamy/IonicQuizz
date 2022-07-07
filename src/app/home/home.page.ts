@@ -79,6 +79,6 @@ export class HomePage {
     this.categoriesSelected.forEach(cat => {
       catStr += cat + ","
     });
-    this.router.navigate(['/content', this.pseudo, this.nbQuestions, this.difficulte, catStr.slice(0, -1)]);
+    this.router.navigate(['/content', this.pseudo, this.nbQuestions, this.difficulte, catStr.slice(0, -1)], { replaceUrl: true });
   }
 }
