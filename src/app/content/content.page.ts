@@ -73,11 +73,9 @@ export class ContentPage implements OnInit {
 
   /**
    * Constructeur
-   * @param toastCtrl Toast
-   * @param openTriviaSrv Service OpenTrivia
    */
   constructor(private activatedRoute: ActivatedRoute, private toastCtrl: ToastController, private openTriviaSrv: OpenTriviaService, private router: Router) {
-
+    
    }
 
   ngOnInit() {
